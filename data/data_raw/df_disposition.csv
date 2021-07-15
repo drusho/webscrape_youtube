@@ -1,0 +1,10 @@
+,Code,Disposition
+0,1,Treated/Untreated and Released
+1,2,Treated and transferred to another hospital
+2,3,Treated and admitted for hospitalization
+3,4,Held for observation
+4,5,Left without being seen
+5,6,Left against medical advice
+6,7,Left without treatment
+7,8,Eloped Fatality/DOA/died in the ED/Died after admission
+8,9,Not recorded
