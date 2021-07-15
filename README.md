@@ -1,8 +1,8 @@
-# __Using Selenium to Web Scrape Job Postings on Indeed.com__
+# __Using Selenium to Web Scrape Jobs on Indeed.com__
 
-<img src="https://raw.githubusercontent.com/drusho/webscrapping/main/assets/spider_web.jpg" height="300">
+<img src="https://raw.githubusercontent.com/drusho/webscrapping/main/assets/header_spider_web.jpg" width="500">
 
-##### Artwork by Dorothy Binder
+##### _Artwork by Dorothy Binder_
 
 <br>
 <br>
