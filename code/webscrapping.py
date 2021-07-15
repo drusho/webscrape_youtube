@@ -11,19 +11,19 @@ import time
 DRIVER_PATH = '/opt/homebrew/bin/chromedriver'
 driver = webdriver.Chrome(executable_path = DRIVER_PATH)
 
+"""
+## action = ActionChains(driver)
+"""
 
-action = ActionChains(driver)
+#Enter Job and Location Search Terms
+job_search_term = 'data analyst'
+job_search_location = 'new york'
+display_limit_num = '50'
 
 #Open chrome browser to url
 driver.get('https://indeed.com')
 driver.implicitly_wait(30)
 driver.set_page_load_timeout(50)
-
-#Enter Job and Location Search Terms
-job_search_term = 'data analyst'
-job_search_location = 'new york'
-display_limit_num = '30'
-
 
 def general_search(job, location):
 
@@ -42,14 +42,15 @@ def general_search(job, location):
     find_jobs_button = driver.find_element_by_xpath('//*[@id="whatWhereFormId"]/div[3]/button')
     find_jobs_button.click()
 
-    return print(f"General Search for {job_search_term} in {job_search_location} completed")
+    return print(f"General Search for {job_search_term} in {job_search_location} complete.")
 
-
+'''
 # Close Pop-Up
 # close_popup = driver.find_element_by_id("popover-close-link")
 # close_popup.click()
+# '''
 
-def advanced_job_search(job,limit):
+def advanced_job_search(job,limit,location):
     #From main site, find and click advanced search buttom
     advanced_search = driver.find_element_by_xpath("//a[contains(text(),'Advanced Job Search')]")
     advanced_search.click()
@@ -66,11 +67,23 @@ def advanced_job_search(job,limit):
     sort_option = driver.find_element_by_xpath('//select[@id="sort"]//option[@value="date"]')
     sort_option.click()
 
+    location_selection = driver.find_element_by_xpath('//*[@id="where"]')
+    time.sleep(1)
+    location_selection.send_keys(Keys.COMMAND+"a")
+    time.sleep(1)
+    location_selection.send_keys([job_search_location])
+
     #initiate advanced search
     search_button = driver.find_element_by_xpath('//*[@id="fj"]')
     search_button.click()
 
+    return print(f"Advanced Search for {job_search_term} in {job_search_location} complete.")
 
-general_search(job_search_term,job_search_location)
 
-# advanced_job_search(job_search_term, display_limit)
+# general_search(job_search_term,job_search_location)
+
+# advanced_job_search(job_search_term, display_limit_num,job_search_location)
+
+#URL search hack
+url_advanced_search = f"https://www.indeed.com/jobs?as_phr={job_search_term}&radius=25&l={job_search_location}&limit={display_limit_num}"
+driver.get(url_advanced_search)
