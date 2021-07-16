@@ -1,4 +1,4 @@
-# __Using Selenium to Web Scrape Jobs on Indeed.com__
+# __Using Selenium to Web Scrape Jobs Posts on Indeed.com__
 
 <img src="https://raw.githubusercontent.com/drusho/webscrapping/main/assets/header_spider_web.jpg" width="500">
 
