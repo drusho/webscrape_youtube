@@ -1,8 +1,10 @@
+
 # __Using Selenium to Webscrape Youtube Tech Channels__
 
 <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/assets/header_youtube_web.png">
 
 <br>
+
 
 ## About the Data
 
