@@ -4,13 +4,6 @@
 
 <br>
 
-[TOCM]
-
-[TOC]
-
-<br>
-
-
 ## About the Data
 
 Perform webscrapping of the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in webscraping and web testing).  The youtube channels that were to scrapped were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from blog.bit.ai.  Scraping included:
