@@ -1,4 +1,4 @@
-# __Using Selenium to Webscrape Data of Top Tech Youtubers__
+# __Using Selenium to Webscrape Youtube Tech Channels__
 
 <img src="https://raw.githubusercontent.com/drusho/webscrapping/main/assets/header_spider_web.jpg" width="500">
 
