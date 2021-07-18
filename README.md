@@ -18,6 +18,12 @@ Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Sele
 
 
 The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to a CSV file to aid in further analyze on a Google Colab notebook.
+
+<br>
+
+## Project Links
+
+[<img src="https://img.shields.io/badge/google%20colab-%23FFCC22.svg?&style=flat-&logo=google%20colab&logoColor=black" />  "Data Analysis of Youtube Tech Channels"](https://colab.research.google.com/drive/1UxpBBsypGqUj7816zyvGNhJcPfaxBP_c?usp=sharing)
 <br>
 
 ## Resources
@@ -36,7 +42,7 @@ The average number of videos per channel was around 200.  In total, the data fro
 
 <br>
 
-## Links
+## Social Links
 
 [<img src="https://img.shields.io/badge/Github_Blog-%23ffa64d.svg?&style=for-the-badge&logo=&logoColor=" />](https://drusho.github.io) [<img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />](https://github.com/drusho)  [<img src ="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">](https://twitter.com/drusho)  [<img src="https://img.shields.io/badge/tableau-%23ff4d4d.svg?&style=for-the-badge&logo=tableau&logoColor=white">](https://public.tableau.com/app/profile/drusho) [<img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/davidrusho)
 
