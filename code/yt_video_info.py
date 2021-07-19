@@ -20,14 +20,17 @@ options.add_argument("--window-size=1920x1080")
 DRIVER_PATH = "/opt/homebrew/bin/chromedriver"
 
 # activate driver
-driver = webdriver.Chrome(executable_path=DRIVER_PATH)
+driver = webdriver.Chrome(executable_path=DRIVER_PATH, options=options)
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
 # launch driver
-url = f"https://www.youtube.com/watch?v=UDATm1CwIR8"
+url = "https://www.youtube.com/watch?v=UDATm1CwIR8"
 driver.get(url)
+print("Driver Loaded\n")
 time.sleep(4)
 
+
+vid_list = []
 
 # video duration
 def duration():
@@ -135,26 +138,48 @@ v_genre = genre()
 v_width = width()
 v_height = height()
 title = video_title()
-# url_ad = url_address()
 interaction_count = interactions()
 
+wait = WebDriverWait(driver, 30)
+subscribe_button = '//*[@id="subscribe-button"]'
 
-print(
-    f"""
-    Channel Name: {chan_name},
-    Title: {title},
-    Duration: {v_duration},
-    Partial Description: {p_description},
-    Publish Date {publish_date},
-    Upload_date: {upload_date},
-    Genre: {v_genre},
-    Width: {v_width},
-    Height: {v_height},
-    Likes: {likes_num},
-    Interaction Count: {interaction_count}"""
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, subscribe_button))
 )
+print("Browser wait complete.\n")
+
+video_items = {
+    "url": url,
+    "Channel Name": chan_name,
+    "Title": title,
+    "Duration": v_duration,
+    "Partial Description": p_description,
+    "Publish Date": publish_date,
+    "Upload_date": upload_date,
+    "Genre": v_genre,
+    "Width": v_width,
+    "Height": v_height,
+    "Likes": likes_num,
+    "Interaction Count": interaction_count,
+}
+
 
 driver.quit()
+
+print("\nDriver Quit")
+
+
+vid_list.append(video_items)
+
+# create pandas df for video info
+df_channel = pd.DataFrame(vid_list)
+
+# export df to csv
+df_channel.to_csv("yt_channel_scrap.csv")
+
+print(df_channel.shape)
+
+print(df_channel.head(10))
 
 # import csv of youtube channels data
 # df_channels = pd.read_csv(
