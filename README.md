@@ -7,7 +7,7 @@
 
 ## About the Data
 
-Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in web scraping and web testing).  The youtube channels to were scrapped were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from blog.bit.ai.  Scraping included:
+Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in web scraping and web testing).  Youtube channels that were scrapped were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from blog.bit.ai.  Scraping included:
 * General data for each channel 
 	* ex.join date, name, no. of subscribers
 * Data from most popular videos per channel
