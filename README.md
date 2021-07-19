@@ -16,7 +16,7 @@ Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Sele
 	* ex. post date, no. of upvotes, no. comments. 
 	
 
-The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to a CSV file to aid in further analyze on a Google Colab notebook.
+The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to multiple CSV files to aid in further analyze on a Google Colab notebook.  Please see the github blog for more info.
 
 <br>
 
