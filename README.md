@@ -8,13 +8,13 @@
 ## About the Data
 
 Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in web scraping and web testing).  The youtube channels to were scrapped were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from blog.bit.ai.  Scraping included:
-* Channel names
-* Number of subscribers per channel
-* Data from most popular videos per channel included:
-	* Video titles
-	* Posting date
-	* Number of views
-
+* General data for each channel 
+	* ex.join date, name, no. of subscribers
+* Data from most popular videos per channel
+	* ex. video titles, views,  	
+* Data specific to each video.
+	* ex. post date, no. of upvotes, no. comments. 
+	
 
 The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to a CSV file to aid in further analyze on a Google Colab notebook.
 
