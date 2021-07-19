@@ -1,12 +1,28 @@
-# Files
-
-#### yt_channel_info.py
-First script that was run.  The script was used to web scrape youtube video channel profiles pages (video and about sections) of top 10 tech related Youtube Channels.
+# File Descriptions
 
 
-#### yt_video_info.py
-Second script that was run.  The script used urls discovered in __yt_channel_info.py__ to load each video site and grab specific video details.
+
+### __yt_channel_info.py__
+
+Web Scrapping was performed using Selenium.  _Video_ and _About_ sections were scrapped for  info on both the Youtube channel and videos on each channel.
+
+This included:
+* Channel_name
+* Number of Subscribers
+* Video Titles
+* Views for Each Video
+* Video Post Date (Vague Description)
+* Url for Each Video
+* Channel Join Date
+* Total Channel Views
+* Channel Description
 
 
-##### Tools Used for all Files
-* Selenium for Python
+### __yt_video_info.py__
+
+This file used urls scrapped in __yt_channel_info.py__ to scrap more specific details of each video this included:
+
+* Exact date video was posted
+* Hashtags associated with video
+* Video length in minutes/seconds
+* Number of comments per video
