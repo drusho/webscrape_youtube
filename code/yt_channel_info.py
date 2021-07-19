@@ -4,13 +4,6 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-options = webdriver.ChromeOptions()
-# options.add_argument("start-maximized")
-options.add_argument("headless")
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
-options.add_experimental_option("useAutomationExtension", False)
-
-
 # Chrome driver location (for M1 macbook air)
 DRIVER_PATH = "/opt/homebrew/bin/chromedriver"
 
