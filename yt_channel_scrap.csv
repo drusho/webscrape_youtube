@@ -1,2 +1,0 @@
-,url,Channel Name,Title,Duration,Partial Description,Publish Date,Upload_date,Genre,Width,Height,Likes,Interaction Count
-0,https://www.youtube.com/watch?v=UDATm1CwIR8,John Watson Rooney,Async Requests Made Simple - Grequests for Web Scraping with Python,30.0,We're starting to look at Async scraping and how it can speed up our web scraping by eliminating the need to wait for the http response each time before movi...,2021-03-03,2021-03-03,Science & Technology,1280,720,164,2244

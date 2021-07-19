@@ -1,15 +1,16 @@
 import pandas as pd
-from requests import options
 import time
-import datetime
-from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import os
+from datetime import datetime
+from requests import options
+from selenium import webdriver
 
-from uritemplate import partial
+
+start_time = datetime.now()
+
 
 # instantiate a chrome options object so you can set the size and headless preference
 options = Options()
@@ -23,21 +24,16 @@ DRIVER_PATH = "/opt/homebrew/bin/chromedriver"
 driver = webdriver.Chrome(executable_path=DRIVER_PATH, options=options)
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-# launch driver
-url = "https://www.youtube.com/watch?v=UDATm1CwIR8"
-driver.get(url)
-print("Driver Loaded\n")
-time.sleep(4)
-
-
-vid_list = []
 
 # video duration
 def duration():
-    duration = "//span[@class='ytp-time-duration']"
-    video_time = driver.find_elements_by_xpath(duration)[0].text
-    x = time.strptime(video_time, "%M:%S")
-    return datetime.timedelta(minutes=x.tm_min, seconds=x.tm_sec).total_seconds()
+    duration_x = "//span[@class='ytp-time-duration']"
+    duration = driver.find_elements_by_xpath(duration_x)[0].text
+    return duration
+
+    # convert duration to only seconds
+    # duration = time.strptime(video_time, "%M:%S")
+    # d_convert = datetime.timedelta(minutes=x.tm_min, seconds=x.tm_sec).total_seconds()
 
 
 # partial description
@@ -128,70 +124,139 @@ def likes():
     return driver.find_element_by_xpath(likes_xpath).text
 
 
-likes_num = likes()
-chan_name = channel_name()
-v_duration = duration()
-p_description = par_description()
-publish_date = publish()
-upload_date = upload()
-v_genre = genre()
-v_width = width()
-v_height = height()
-title = video_title()
-interaction_count = interactions()
+# Total Comments
+def comments():
+    # Move Page to display comments
+    # set scroll pause time
+    SCROLL_PAUSE_TIME = 0.5
 
-wait = WebDriverWait(driver, 30)
-subscribe_button = '//*[@id="subscribe-button"]'
+    # scroll to page bottom
+    driver.execute_script("window.scrollTo(0, 1080)")
 
-WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, subscribe_button))
+    # Wait for page load
+    time.sleep(SCROLL_PAUSE_TIME)
+
+    # scroll to page bottom
+    driver.execute_script("window.scrollTo(300, 1080)")
+
+    # Wait to load page
+    time.sleep(SCROLL_PAUSE_TIME)
+
+    com = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.XPATH, '//*[@id="count"]/yt-formatted-string')
+        )
+    )
+    return com.text
+
+
+# import csv of youtube channels data
+df_channels = pd.read_csv(
+    "/Users/lovemachine/Downloads/- temporary/webscrape_youtube/data/data_raw/yt_channel_scrap.csv",
 )
-print("Browser wait complete.\n")
 
-video_items = {
-    "url": url,
-    "Channel Name": chan_name,
-    "Title": title,
-    "Duration": v_duration,
-    "Partial Description": p_description,
-    "Publish Date": publish_date,
-    "Upload_date": upload_date,
-    "Genre": v_genre,
-    "Width": v_width,
-    "Height": v_height,
-    "Likes": likes_num,
-    "Interaction Count": interaction_count,
-}
+# new df of channel names and urls
+df_videos = df_channels[["channel_name", "url"]].dropna()
 
+# isolate video urls to a list
+# url_list = df_videos.url.to_list()
+
+url_list = [
+    "https://www.youtube.com/watch?v=U0WkfAkSmC4",
+    "https://www.youtube.com/watch?v=ugd8c6zDDQA",
+    "https://www.youtube.com/watch?v=VJI88QIW7H4",
+    "https://www.youtube.com/watch?v=PRVr1heimY8",
+]
+
+vid_list = []
+url_fails_ls = []
+
+count = 0
+
+# # launch driver(s)
+for url in url_list:
+    driver.get(url)
+    count += 1
+    time.sleep(3)
+    subscribe_button = '//*[@id="subscribe-button"]'
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.XPATH, subscribe_button))
+    )
+
+    try:
+        comments_num = comments()
+        likes_num = likes()
+        chan_name = channel_name()
+        v_duration = duration()
+        p_description = par_description()
+        publish_date = publish()
+        upload_date = upload()
+        v_genre = genre()
+        v_width = width()
+        v_height = height()
+        title = video_title()
+        interaction_count = interactions()
+
+    except:
+        print(f"EXCEPTION RAISED for {url}")
+        url_fails_ls.append(url)
+        pass
+
+    video_items = {
+        "url": url,  # primary key
+        "Channel Name": chan_name,
+        "Title": title,
+        "Duration": v_duration,
+        "Partial Description": p_description,
+        "Publish Date": publish_date,
+        "Upload_date": upload_date,
+        "Genre": v_genre,
+        "Width": v_width,
+        "Height": v_height,
+        "Likes": likes_num,
+        "Comments": comments_num,
+        "Interaction Count": interaction_count,
+    }
+
+    vid_list.append(video_items)
+
+    # print(f"url {count} of {len(url_list)} complete")
+    # print every 10th url
+    if count % 10 == 0:
+        print(f"URL {count} of {len(url_list)} processed.")
 
 driver.quit()
 
-print("\nDriver Quit")
+# # create dfs for video and failed urls
+df_videos = pd.DataFrame(vid_list)
 
+url_fails_dict = {"url": url_fails_ls}
+df_url_fails = pd.DataFrame(url_fails_dict)
 
-vid_list.append(video_items)
+end_time = datetime.now()
 
-# create pandas df for video info
-df_channel = pd.DataFrame(vid_list)
+print("Driver Quit")
+print("Code Duration: {}".format(end_time - start_time))
+print(f"Videos Processed: {len(vid_list)}")
+print(f"Failures: {len(url_fails_ls)}")
+print(df_videos.shape)
+print(df_videos.head())
+
 
 # export df to csv
-df_channel.to_csv("yt_channel_scrap.csv")
+df_url_fails.to_csv(
+    "/Users/lovemachine/Downloads/- temporary/webscrape_youtube/data/data_raw/url_fails.csv"
+)
 
-print(df_channel.shape)
+df_videos.to_csv(
+    "/Users/lovemachine/Downloads/- temporary/webscrape_youtube/data/data_raw/yt_videos_scrap.csv"
+)
 
-print(df_channel.head(10))
 
-# import csv of youtube channels data
-# df_channels = pd.read_csv(
-#     "/Users/lovemachine/Downloads/- temporary/webscrape_youtube/data/data_raw/yt_channel_scrap.csv",
-# )
+# ## Resources
 
-# # new df of channel names and urls
-# df_videos = df_channels[["channel_name", "url"]].dropna()
+# """
+# Comments Scrapping:
+# https://stackoverflow.com/questions/61410776/what-should-be-the-css-selector-to-find-count-of-comments-in-a-youtube-video-usi
 
-# # isolate video urls to a list
-# url_list = df_videos.url.to_list()
-
-# # loop through url list
-# for url in url_list:
-#     pass
+# """
