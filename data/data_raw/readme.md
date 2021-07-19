@@ -16,9 +16,7 @@ Data that was acquired from Youtube Channels' main profile.  Video and About sec
 
 
 ## yt_video_scrap_big_data.csv
-Data was acquired by visiting each url for 2000 videos that were found in __yt_channel_scrap.csv__.
-
-Contains specific video details that couldn't be found on main Youtube Channel pages, such as:
+Data was acquired by visiting each url for 2000 videos that were found in __yt_channel_scrap.csv__.  Contains specific video details that couldn't be found on main Youtube Channel pages, such as:
 
 * video length
 * video size (width/height)
