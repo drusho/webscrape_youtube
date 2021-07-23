@@ -1,6 +1,7 @@
 [<img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?&sflat&logo=Twitter&logoColor=white" alt="Twitter profile link button" height="20" width="70" />](https://twitter.com/drusho) &emsp; [<img src="https://img.shields.io/badge/Linkedin-%230A66C2.svg?&sflat&logo=linkedin&logoColor=white" alt="Linkedin profile link button" height="20" width="70" />](https://linkedin.com/in/davidrusho) &emsp; [<img src="https://img.shields.io/badge/Tableau-%23ff4d4d.svg?&sflat&logo=tableau&logoColor=white" alt="Tableau profile link button" height="20" width="70" >](https://public.tableau.com/app/profile/drusho) &emsp; [<img src="https://img.shields.io/badge/Github Blog-%23181717.svg?&style=flat&logo=github&logoColor=white" alt="Github profile link button" height="20" width="90" alt="Github Blog Button"/>](https://drusho.github.io/blog)
 
-# __Using Selenium to Webscrape Youtube Tech Channels__
+# __Web Scrapping Popular Youtube Tech Channels with Selenium__
+> Data Mining, Data Wrangling, and Exploratory Data Analysis
 
 <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/assets/header_youtube_web.png">
 
