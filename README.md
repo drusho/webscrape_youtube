@@ -17,7 +17,7 @@ Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Sele
 	* ex. post date, no. of upvotes, no. comments. 
 	
 
-The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to multiple CSV files to aid in further analyze on a Google Colab notebook.  Please see my [<img src="https://img.shields.io/badge/Github_Blog-%23ffa64d.svg?&style=flat&logo=&logoColor=" />](https://drusho.github.io/selenium/web%20scrapping/pandas/2021/07/17/webscrapping-youtube.html) for more more details.
+The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to multiple CSV files to aid in further analyze on a Google Colab notebook.  Please see my [<img src="https://img.shields.io/badge/Github_Blog-%23ffa64d.svg?&style=flat&logo=&logoColor=" />](https://drusho.github.io/blog/selenium/web%20scrapping/pandas/youtube/python/2021/07/20/webscrapping-youtube-blog.html) for more more details.
 
 <br>
 
