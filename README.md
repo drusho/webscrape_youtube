@@ -19,6 +19,12 @@ All data was saved to multiple CSV files to aid in further analyze on a Google C
 
 The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  
 
+##### Word Cloud of Word Frequency in Video Titles 
+
+<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/word_frequency (wordcloud).png" width=300 height=200>
+<br>
+<br>
+
 <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/word_frequency_of_video_title_(bar_plot).gif" width=400 height=220>
 
 <br>
@@ -28,26 +34,27 @@ The average number of videos per channel was around 200.  In total, the data fro
 <br>
 <br>
 
-#### Word Cloud of Word Frequency in Video Titles 
 
-<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/word_frequency (wordcloud).png" width=400 height=300>
-<br>
-<br>
 
-<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/top_10_liked_videos (dataframe).png" width=500 height=200>
 
-<br>
-<br>
 
 ## Take Aways
 
+  <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/correlation (dataframe).png" width=500 height=100>
+
 1. Video Comment numbers have very little correlation to any data that was obtained in this project.
+   
+
+  
 
 2. The following seem to be seems to be highly correlated.
    * Channel Views and Subscribers
    * Interactions and Video Views
 
 3. Video titles fall into 5 topic groups.
+
+    <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/scatter.gif" width=500 height=220>
+
    * Iphone (kmeans 0)
    * Samsung (kmeans 1)
    * Reviews (kmeans 2)
@@ -56,7 +63,13 @@ The average number of videos per channel was around 200.  In total, the data fro
 
 4. 70% of the the most viewed videos are about phones.
 
+   <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/top_10_youtube_videos_by_views (dataframe).png" width=500 height=220>
+
+
 5. Join Date (Date a Youtube Channel was created) does not seem to have any relationship to number of subscribers or overall cha
+
+   <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/channels_ordered_by_join_date_(dataframe).png" width=500 height=300>
+
 
 <br>
 <br>
