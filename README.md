@@ -9,17 +9,56 @@
 
 ## About the Data
 
-Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in web scraping and web testing).  Web scrapped Youtube channels were  were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from [blog.bit.ai](https://blog.bit.ai/).  Scraping included:
-* General data for each channel 
-	* ex.join date, name, no. of subscribers
-* Data from most popular videos per channel
-	* ex. video titles, views,  	
-* Data specific to each video.
-	* ex. post date, no. of upvotes, no. comments. 
-	
+Web scraping was performed on the _Top 10 Tech Channels_ on Youtube using _[Selenium](https://selenium-python.readthedocs.io/)_ (an automated browser (driver) controlled using python, which is often used in web scraping and web testing).  Web scrapped Youtube channels were  were determined using a __[Top 10 Tech Youtubers](https://blog.bit.ai/top-tech-youtubers/)__ list from [blog.bit.ai](https://blog.bit.ai/). 
 
-The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  All data was saved to multiple CSV files to aid in further analyze on a Google Colab notebook.  Please see my [<img src="https://img.shields.io/badge/Github_Blog-%23ffa64d.svg?&style=flat&logo=&logoColor=" />](https://drusho.github.io/blog/selenium/web%20scrapping/pandas/youtube/python/2021/07/20/webscrapping-youtube-blog.html) for more more details.
+All data was saved to multiple CSV files to aid in further analyze on a Google Colab notebook.  Please see my [<img src="https://img.shields.io/badge/Github_Blog-%23ffa64d.svg?&style=flat&logo=&logoColor=" />](https://drusho.github.io/blog/selenium/web%20scrapping/pandas/youtube/python/2021/07/20/webscrapping-youtube-blog.html) for more more details.
 
+<br>
+
+## Sample of Data Collected
+
+The average number of videos per channel was around 200.  In total, the data from 2000 videos was scrapped.  
+
+<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/word_frequency_of_video_title_(bar_plot).gif" width=400 height=220>
+
+<br>
+<br>
+
+<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/top_video_likes_over_time_(scatter_plot).gif" width=500 height=220>
+<br>
+<br>
+
+#### Word Cloud of Word Frequency in Video Titles 
+
+<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/word_frequency (wordcloud).png" width=400 height=300>
+<br>
+<br>
+
+<img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/top_10_liked_videos (dataframe).png" width=500 height=200>
+
+<br>
+<br>
+
+## Take Aways
+
+1. Video Comment numbers have very little correlation to any data that was obtained in this project.
+
+2. The following seem to be seems to be highly correlated.
+   * Channel Views and Subscribers
+   * Interactions and Video Views
+
+3. Video titles fall into 5 topic groups.
+   * Iphone (kmeans 0)
+   * Samsung (kmeans 1)
+   * Reviews (kmeans 2)
+   * Unboxing (kmeans 3)
+   * How-to (kmeans 4)
+
+4. 70% of the the most viewed videos are about phones.
+
+5. Join Date (Date a Youtube Channel was created) does not seem to have any relationship to number of subscribers or overall cha
+
+<br>
 <br>
 
 ## Project Links
