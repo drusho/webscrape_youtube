@@ -53,6 +53,8 @@ The average number of videos per channel was around 200.  In total, the data fro
 
 3. Video titles fall into 5 topic groups.
 
+    #### Kmeans and PCA used to create clusters for video titles
+    
     <img src="https://raw.githubusercontent.com/drusho/webscrape_youtube/main/reports/figures/scatter.gif" width=500 height=220>
 
    * Iphone (kmeans 0)
